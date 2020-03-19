@@ -1,0 +1,14 @@
+body, html {
+  height: 100%;
+}
+table {
+  border: 1px solid #000;
+background-color: #ccc;
+}
+tr {
+  background-color: #ddd;
+}
+td {
+  background-color: #eee;
+  border-color: 1px solid #fff;
+}
