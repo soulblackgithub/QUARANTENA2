@@ -1,17 +1,19 @@
-from flask import Flask, render_template, json, request
-from flaskext.mysql import MySQL
-from werkzeug import generate_password_hash, check_password_hash
-
-mysql = MySQL()
+from flask import Flask, render_template, json, request , url_for , redirect , flash
+from flask_sqlalchemy import SQLAlchemy
+#from flaskext.mysql import MySQL
+#from werkzeug import generate_password_hash, check_password_hash
 app = Flask(__name__)
-mysql.init_app(app)
+#mysql.init__app(app)
+# MySQL configurations
+#db = SQLAlchemy(app)
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'jay'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'jay'
-app.config['MYSQL_DATABASE_DB'] = 'BucketList'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
+app.config[SECRET_KEY] ='12345'
+app.config['SQLALCHEMY_USER_URI'] ='sqlite:///site.db' ###'jay'
+app.config['SQLALCHEMY_DATABASE_PASSWORD_URI'] = 'sqlite:///site.db'###'jay'
+app.config['SQLALCHEMY_DATABASE_DB_URI'] ='sqlite:///site.db' ###'BucketList'
+app.config['SQLALCHEMY_DATABASE_HOST_URI'] ='sqlite:///site.db'### 'localhost'
+
 
 
 @app.route('/')
